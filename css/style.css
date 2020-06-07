@@ -1,0 +1,56 @@
+* {
+    /* outline: 1px dotted red; */
+    margin: 0;
+    padding: 0;
+}
+
+
+.wrapper {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.top-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.top-container h1 {
+    text-align: center;
+    padding: 2rem;
+}
+
+.top-container h4 {
+    margin: .15rem 0;
+}
+
+.top-container .top-left {
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.top-container .top-right {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 2rem 0;
+}
+
+.poke-container {
+    text-align: center;
+    height: 500px;
+    overflow: scroll;
+    border: 1px solid black;
+}
+
+.poke-card {
+    display: inline-block;
+    margin: 1%;
+}
+
+/* Utilities */
+ul li {
+    margin-left: 1rem;
+}

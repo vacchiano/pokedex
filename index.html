@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon API</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get(" https://pokeapi.co/api/v2/pokemon?limit=99", function(res) {
+                console.log(res);
+
+                var html_str = "";
+                // html_str += "<h4>Pokedex</h4>";
+                html_str += "<div class='poke-container'>";
+                for (var i=0; i < res.results.length; i++) {
+                    html_str += "<div class='poke-card'>"
+                    html_str += "<p>" + res.results[i].name + "</p>";
+                    html_str += "<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+(i+1)+".png'></img>"
+                    html_str += "</div>"
+                }
+                html_str += "</div>";
+
+                $("#poke-list").html(html_str);
+            $(".poke-card").click(function() {
+                var title = $(this).text();
+                var img = $(this).children("img").attr("src");
+                console.log(title, img);
+                $(".name").text(title);
+                $(".top-left img").attr("src", img)
+            });
+            }, "json");
+        }
+        
+        
+        );
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="top-container">
+            <h1>Pokedex - Select Pokemon Below</h1>
+            <div class="top-left">
+                
+                <h3 class="name">Pokemon Name</h3>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Poke Pic" class="pokepic">
+            </div>
+            <div class="top-right">
+                <h4 class="type-title">Types</h4>
+                <ul>
+                    <li>Poke Type</li>
+                </ul>
+                <h4 class="height-label">Height</h4>
+                <ul>
+                    <li>Poke Height</li>
+                </ul>
+                <h4 class="weight-label">Weight</h4>
+                <p class="weight">Poke Weight</p>
+            </div>
+            
+        </div>
+        <div id="poke-list">
+
+        </div>    
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>
